@@ -14,6 +14,5 @@
         <TextBox x:Name="txtPrecio" HorizontalAlignment="Left" Margin="51,254,0,0" TextWrapping="Wrap" Text="Precio" VerticalAlignment="Top" Width="375" Height="34"/>
         <TextBox x:Name="txtStock" HorizontalAlignment="Left" Margin="51,314,0,0" TextWrapping="Wrap" Text="Stock" VerticalAlignment="Top" Width="375" Height="34"/>
         <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="509,183,0,0" VerticalAlignment="Top" Height="66" Width="201" Click="btnGuardar_Click"/>
-
     </Grid>
 </Window>
