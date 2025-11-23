@@ -11,12 +11,17 @@ public class Producto
     public decimal Precio { get; set; }
     public int Stock { get; set; }
 
+    public string Imagen { get; set; }
+
 
     public override string ToString()
     {
         return $"[{Id}] {CodigoBarras} - {Nombre}| {Precio:C} | Stock: {Stock}|{Categoria}";
     }
 }
+
+
+
 
 
 public class GestorProductos

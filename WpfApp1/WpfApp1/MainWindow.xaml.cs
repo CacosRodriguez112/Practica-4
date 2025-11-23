@@ -39,6 +39,8 @@ namespace GestorProductosWPF
         }
 
 
+       
+
         private void CargarDatosIniciales()
         {
             gestor.AgregarProducto(new Producto
@@ -48,7 +50,8 @@ namespace GestorProductosWPF
                 Nombre = "Teclado",
                 Categoria = "Electronica",
                 Precio = 300,
-                Stock = 20
+                Stock = 20,
+                Imagen = "Imagenes/Teclado.jpg"
             }
             );
             gestor.AgregarProducto(new Producto
@@ -58,7 +61,8 @@ namespace GestorProductosWPF
                 Nombre = "Computadora",
                 Categoria = "Electronica",
                 Precio = 12000,
-                Stock = 10
+                Stock = 10,
+                Imagen = "Imagenes/Computadora.jpeg"
             }
             );
             gestor.AgregarProducto(new Producto
@@ -68,7 +72,8 @@ namespace GestorProductosWPF
                 Nombre = "Bocina",
                 Categoria = "Electronica",
                 Precio = 4000,
-                Stock = 2
+                Stock = 2,
+                Imagen = "Imagenes/Bocina.jpg"
             }
             );
             gestor.AgregarProducto(new Producto
@@ -78,7 +83,8 @@ namespace GestorProductosWPF
                 Nombre = "USB",
                 Categoria = "Electronica",
                 Precio = 150,
-                Stock = 30
+                Stock = 30,
+                Imagen = "Imagenes/USB.jpg"
             }
             );
 
@@ -90,7 +96,8 @@ namespace GestorProductosWPF
                 Nombre = "Sudadera",
                 Categoria = "Ropa",
                 Precio = 300,
-                Stock = 15
+                Stock = 15,
+                Imagen = "Imagenes/Sudadera.jpg"
             }
             );
         }
@@ -132,7 +139,20 @@ namespace GestorProductosWPF
         {
             txtResultadoBusqueda.Text = producto?.ToString() ?? "No encontrado";
             progressIteraciones.Value = iteraciones * 5;
+
+            if (producto != null && !string.IsNullOrEmpty(producto.Imagen))
+            {
+                imgProductoBuscado.Source = new BitmapImage(new Uri(producto.Imagen, UriKind.Relative));
+                imgProductoBuscado.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                imgProductoBuscado.Visibility = Visibility.Hidden;
+            }
         }
+
+
+
         private void btnOrdenar_Click(object sender, RoutedEventArgs e)
         {
             List<Producto> productos = new List<Producto>(gestor.ObtenerListaProductos());
@@ -169,7 +189,7 @@ namespace GestorProductosWPF
                 {
                     Width = 30,
                     Height = (double)productos[i].Precio * escala,
-                    Fill = Brushes.Purple,
+                    Fill = Brushes.BlueViolet,
                     Margin = new Thickness(i * 40, canvasGrafico.ActualHeight - ((double)productos[i].Precio * escala), 0, 0)
                 };
 
@@ -180,7 +200,7 @@ namespace GestorProductosWPF
                 TextBlock etiqueta = new TextBlock
                 {
                     Text = productos[i].Nombre,
-                    Margin = new Thickness(i * 40, canvasGrafico.ActualHeight - 20, 0, 0)
+                    Margin = new Thickness(i * 40, canvasGrafico.ActualHeight + 10, 0, 0)
                 };
                 canvasGrafico.Children.Add(etiqueta);
             }
