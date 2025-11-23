@@ -1,0 +1,51 @@
+﻿<Window x:Class="GestorProductosWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GestorProductosWPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Foreground="Black" BorderBrush="Red" Background="#FFF00808">
+    <Grid>
+        <TabControl Background="#FFFAFAFA">
+            <TabItem Header="Inventario">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="46*"/>
+                        <ColumnDefinition Width="351*"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid x:Name="dataGridProductos" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.ColumnSpan="2" Foreground="Black"/>
+                    <Button x:Name="btnAgregar" Content="Agregar" HorizontalAlignment="Left" Margin="35,219,0,0" VerticalAlignment="Top" Height="55" Width="218" Click="btnAgregar_Click" Grid.ColumnSpan="2" Background="#FFD6D6D6" BorderBrush="White" Foreground="Black"/>
+                    <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="374,219,0,0" VerticalAlignment="Top" Height="55" Width="239" Click="btnEliminar_Click" Grid.Column="1" Background="#FFAC6262" Foreground="#FFE5A0A0" BorderBrush="Red"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Busqueda">
+                <Grid Background="#FFE5E5E5">
+                    <ComboBox x:Name="comboTipoBusqueda" HorizontalAlignment="Left" Margin="86,10,0,0" VerticalAlignment="Top" Width="545" Height="37"/>
+                    <TextBox x:Name="txtBusqueda" HorizontalAlignment="Left" Margin="86,81,0,0" TextWrapping="Wrap" Text="Producto" VerticalAlignment="Top" Width="545" Height="35"/>
+                    <Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="403,138,0,0" VerticalAlignment="Top" Height="44" Width="228" Click="btnBuscar_Click"/>
+                    <TextBlock x:Name="txtResultadoBusqueda" HorizontalAlignment="Left" Margin="86,138,0,0" TextWrapping="Wrap" Text="Resultado" VerticalAlignment="Top" Height="107" Width="272"/>
+                    <ProgressBar x:Name="progressIteraciones" HorizontalAlignment="Left" Height="50" Margin="403,251,0,0" VerticalAlignment="Top" Width="228"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Ordenamiento">
+                <Grid Background="#FFE5E5E5">
+                    <ComboBox x:Name="comboCirterioOrden" HorizontalAlignment="Left" Margin="65,30,0,0" VerticalAlignment="Top" Width="575" Height="39"/>
+                    <Button x:Name="btnOrdenar" Content="Ordenar" HorizontalAlignment="Left" Margin="423,99,0,0" VerticalAlignment="Top" Height="64" Width="217" Click="btnOrdenar_Click"/>
+                    <ListView x:Name="listViewOrdenados" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="65,99,397,111">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <Canvas x:Name="canvasGrafico" Margin="423,186,154,111">
+                        <Rectangle Height="72" Canvas.Left="108" Stroke="Black" Canvas.Top="10" Width="25" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    </Canvas>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <Rectangle HorizontalAlignment="Left" Height="100" Margin="951,257,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
+
+    </Grid>
+</Window>
