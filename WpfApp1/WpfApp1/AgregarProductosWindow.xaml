@@ -5,14 +5,113 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GestorProductosWPF"
         mc:Ignorable="d"
-        Title="AgregarProductoWindow" Height="450" Width="800">
-    <Grid>
-        <TextBox x:Name="txtId" HorizontalAlignment="Left" Margin="51,28,0,0" TextWrapping="Wrap" Text="Id" VerticalAlignment="Top" Width="375" Height="34"/>
-        <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Margin="51,93,0,0" TextWrapping="Wrap" Text="Nombre" VerticalAlignment="Top" Width="375" Height="34"/>
-        <TextBox x:Name="txtCodigoBarras" HorizontalAlignment="Left" Margin="51,151,0,0" TextWrapping="Wrap" Text="Codigo de barras" VerticalAlignment="Top" Width="375" Height="34"/>
-        <TextBox x:Name="txtCategoria" HorizontalAlignment="Left" Margin="51,0,0,0" TextWrapping="Wrap" Text="Categoria" VerticalAlignment="Center" Width="375" Height="34"/>
-        <TextBox x:Name="txtPrecio" HorizontalAlignment="Left" Margin="51,254,0,0" TextWrapping="Wrap" Text="Precio" VerticalAlignment="Top" Width="375" Height="34"/>
-        <TextBox x:Name="txtStock" HorizontalAlignment="Left" Margin="51,314,0,0" TextWrapping="Wrap" Text="Stock" VerticalAlignment="Top" Width="375" Height="34"/>
-        <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="509,183,0,0" VerticalAlignment="Top" Height="66" Width="201" Click="btnGuardar_Click"/>
+        Title="AgregarProductoWindow" Height="522" Width="545">
+    <Grid Margin="30">
+        <Border Background="White"
+                CornerRadius="20"
+                Padding="30"
+                BorderBrush="#E3E6EB"
+                BorderThickness="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Agregar Nuevo Producto"
+                           FontSize="24"
+                           FontWeight="Bold"
+                           Foreground="#333"
+                           Margin="0 0 0 20"/>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="ID:" Margin="0,10,211,9"
+                               Grid.Row="0" Grid.Column="0"
+                               FontWeight="SemiBold" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="txtId"
+                               Grid.Row="0" Grid.Column="1"
+                               Height="34"
+                               Padding="8"
+                               Background="#F8FAFD"
+                               BorderBrush="#CDD3DD"
+                               BorderThickness="1"/>
+                    <TextBlock Text="Nombre:" Margin="0,10,211,10"
+                               Grid.Row="1" Grid.Column="0"
+                               FontWeight="SemiBold" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="txtNombre"
+                               Grid.Row="1" Grid.Column="1"
+                               Height="34"
+                               Padding="8"
+                               Background="#F8FAFD"
+                               BorderBrush="#CDD3DD"
+                               BorderThickness="1"/>
+                    <TextBlock Text="Código de barras:" Margin="0,10,211,10"
+                               Grid.Row="2" Grid.Column="0"
+                               FontWeight="SemiBold" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="txtCodigoBarras"
+                               Grid.Row="2" Grid.Column="1"
+                               Height="34"
+                               Padding="8"
+                               Background="#F8FAFD"
+                               BorderBrush="#CDD3DD"
+                               BorderThickness="1"/>
+                    <TextBlock Text="Categoría:" Margin="0,10,211,10"
+                               Grid.Row="3" Grid.Column="0"
+                               FontWeight="SemiBold" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="txtCategoria"
+                               Grid.Row="3" Grid.Column="1"
+                               Height="34"
+                               Padding="8"
+                               Background="#F8FAFD"
+                               BorderBrush="#CDD3DD"
+                               BorderThickness="1"/>
+                    <TextBlock Text="Precio:" Margin="0,10,211,10"
+                               Grid.Row="4" Grid.Column="0"
+                               FontWeight="SemiBold" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="txtPrecio"
+                             Grid.Row="4" Grid.Column="1"
+                             Height="34"
+                             Padding="8"
+                             Background="#F8FAFD"
+                             BorderBrush="#CDD3DD"
+                             BorderThickness="1"/>
+                    <TextBlock Text="Stock:" Margin="0,10,211,10"
+                               Grid.Row="5" Grid.Column="0"
+                               FontWeight="SemiBold" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="txtStock"
+                               Grid.Row="5" Grid.Column="1"
+                               Height="34"
+                               Padding="8"
+                               Background="#F8FAFD"
+                               BorderBrush="#CDD3DD"
+                               BorderThickness="1"/>
+                </Grid>
+
+                <Button x:Name="btnGuardar"
+                          Grid.Row="2"
+                          Content="Guardar"
+                          Height="45"
+                          Margin="0 20 0 0"
+                          Background="Green"
+                          Foreground="White"
+                          BorderThickness="0"
+                          FontSize="16"
+                          FontWeight="SemiBold"
+                          Cursor="Hand"
+                          Click="btnGuardar_Click"/>
+            </Grid>
+        </Border>
     </Grid>
 </Window>

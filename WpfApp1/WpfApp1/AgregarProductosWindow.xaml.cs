@@ -35,17 +35,24 @@ namespace GestorProductosWPF
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            Producto = new Producto
+            try
             {
-                Id = int.Parse(txtId.Text),
-                CodigoBarras = txtCodigoBarras.Text,
-                Nombre = txtNombre.Text,
-                Categoria = txtCategoria.Text,
-                Precio = decimal.Parse(txtPrecio.Text),
-                Stock = int.Parse(txtStock.Text),
-            };
-            this.DialogResult = true;
-            this.Close();
+                Producto = new Producto
+                {
+                    Id = int.Parse(txtId.Text),
+                    CodigoBarras = txtCodigoBarras.Text,
+                    Nombre = txtNombre.Text,
+                    Categoria = txtCategoria.Text,
+                    Precio = decimal.Parse(txtPrecio.Text),
+                    Stock = int.Parse(txtStock.Text),
+                };
+                this.DialogResult = true;
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al guardar el producto: " + ex.Message);
+            }
         }
     }
 }

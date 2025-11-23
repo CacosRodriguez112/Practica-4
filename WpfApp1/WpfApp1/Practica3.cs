@@ -16,8 +16,9 @@ public class Producto
 
     public override string ToString()
     {
-        return $"[{Id}] {CodigoBarras} - {Nombre}| {Precio:C} | Stock: {Stock}|{Categoria}";
+        return $"{Nombre} - {Categoria} | {Precio:C} | Stock: {Stock}";
     }
+
 }
 
 

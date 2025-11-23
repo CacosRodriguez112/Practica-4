@@ -179,32 +179,55 @@ namespace GestorProductosWPF
         private void DibujarGraficoBarras(List<Producto> productos)
         {
             canvasGrafico.Children.Clear();
-            double maxPrecio = (double)productos.Max(p => p.Precio);
-            double escala = canvasGrafico.ActualHeight / maxPrecio;
 
+            double alto = canvasGrafico.ActualHeight;
+            double ancho = canvasGrafico.ActualWidth;
+
+            if (alto == 0 || ancho == 0) 
+                return;
+
+            double maxPrecio = (double)productos.Max(p => p.Precio);
+            double escala = alto / maxPrecio;
+
+            double anchoBarra = 30;
+            double espacio = 50;   // separación entre barras
+            double margenInferior = 20;
 
             for (int i = 0; i < productos.Count; i++)
             {
+                double valor = (double)productos[i].Precio;
+                double altura = valor * escala;
+
+                // Barra
                 Rectangle barra = new Rectangle
                 {
-                    Width = 30,
-                    Height = (double)productos[i].Precio * escala,
-                    Fill = Brushes.BlueViolet,
-                    Margin = new Thickness(i * 40, canvasGrafico.ActualHeight - ((double)productos[i].Precio * escala), 0, 0)
+                    Width = anchoBarra,
+                    Height = altura,
+                    Fill = Brushes.CornflowerBlue,
+                    RadiusX = 5,
+                    RadiusY = 5
                 };
 
+                Canvas.SetLeft(barra, 20 + i * espacio);
+                Canvas.SetTop(barra, alto - altura - margenInferior);
 
                 canvasGrafico.Children.Add(barra);
 
-
+                // Texto del nombre justo debajo
                 TextBlock etiqueta = new TextBlock
                 {
                     Text = productos[i].Nombre,
-                    Margin = new Thickness(i * 40, canvasGrafico.ActualHeight + 10, 0, 0)
+                    FontSize = 12,
+                    Foreground = Brushes.Black
                 };
+
+                Canvas.SetLeft(etiqueta, 20 + i * espacio - 5);
+                Canvas.SetTop(etiqueta, alto - margenInferior + 2);
+
                 canvasGrafico.Children.Add(etiqueta);
             }
         }
+
 
 
         private void btnAgregar_Click(object sender, RoutedEventArgs e)
