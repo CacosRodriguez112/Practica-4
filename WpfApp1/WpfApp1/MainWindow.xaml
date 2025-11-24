@@ -206,8 +206,8 @@
                 <Border Background="White" CornerRadius="18" Padding="20" Margin="10">
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="280"/>
-                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="387"/>
+                            <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
 
                         <Border Background="#F7F8FA"
@@ -215,7 +215,7 @@
                                 Padding="15"
                                 BorderBrush="#E1E4E8"
                                 BorderThickness="1"
-                                Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0,475,0">
+                                Grid.Column="0">
 
                             <StackPanel>
                                 <TextBlock Text="Opciones de Ordenamiento"
@@ -269,8 +269,7 @@
                                 BorderBrush="#E1E4E8"
                                 BorderThickness="1"
                                 CornerRadius="14"
-                                Padding="15"
-                                Margin="144,0,0,0" Height="424" VerticalAlignment="Top">
+                                Padding="15" Height="424" VerticalAlignment="Center" Margin="69,0,0,0">
 
                             <StackPanel Margin="0,0,0,12">
                                 <TextBlock Text="Gráfico de Productos"
